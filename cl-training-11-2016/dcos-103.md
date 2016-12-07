@@ -81,7 +81,7 @@ So far we had one instance of the simple service running. Next, we assume we wan
 
 When we now look at the logs again we see the automatic load balancing between the three tasks `sise.5ca09a40-8198-11e6-8b52-26ceb6df775b`, `sise.5ca0c151-8198-11e6-8b52-26ceb6df775b`, and `sise.cac98ccf-8197-11e6-8b52-26ceb6df775b` taking place: 
 
-    $ dcos  log --follow sise stderr
+    $ dcos task log --follow sise stderr
     ===> task:sise.5ca09a40-8198-11e6-8b52-26ceb6df775b:stderr <===
     I0923 14:16:48.579545   448 exec.cpp:236] Executor registered on agent a9d74521-cf9f-479a-8b6e-f10ae1b82346-S2
     I0923 14:16:48.580734   447 docker.cpp:815] Running docker -H unix:///var/run/docker.sock run --cpu-shares 102 --memory 33554432 -e MARATHON_APP_VERSION=2016-09-23T14:16:47.027Z -e HOST=10.0.0.115 -e MARATHON_APP_RESOURCE_CPUS=0.1 -e MARATHON_APP_RESOURCE_GPUS=0 -e MARATHON_APP_DOCKER_IMAGE=mhausenblas/simpleservice:0.3.0 -e PORT_10000=29727 -e MESOS_TASK_ID=sise.5ca09a40-8198-11e6-8b52-26ceb6df775b -e PORT=29727 -e MARATHON_APP_RESOURCE_MEM=32.0 -e PORTS=29727 -e MARATHON_APP_RESOURCE_DISK=0.0 -e MARATHON_APP_LABELS= -e MARATHON_APP_ID=/sise -e PORT0=29727 -e LIBPROCESS_IP=10.0.0.115 -e MESOS_SANDBOX=/mnt/mesos/sandbox -e MESOS_CONTAINER_NAME=mesos-a9d74521-cf9f-479a-8b6e-f10ae1b82346-S2.07e049b6-201c-47dc-9228-fad4048e387d -v /var/lib/mesos/slave/slaves/a9d74521-cf9f-479a-8b6e-f10ae1b82346-S2/frameworks/a9d74521-cf9f-479a-8b6e-f10ae1b82346-0000/executors/sise.5ca09a40-8198-11e6-8b52-26ceb6df775b/runs/07e049b6-201c-47dc-9228-fad4048e387d:/mnt/mesos/sandbox --net host --name mesos-a9d74521-cf9f-479a-8b6e-f10ae1b82346-S2.07e049b6-201c-47dc-9228-fad4048e387d mhausenblas/simpleservice:0.3.0
