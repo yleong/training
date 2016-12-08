@@ -149,7 +149,7 @@ To expose the simple service you only need to add two labels, `HAPROXY_GROUP` an
       },
       "labels": {
         "HAPROXY_GROUP": "external",
-        "HAPROXY_0_VHOST": "http://ec2-52-42-2-149.us-west-2.compute.amazonaws.com"
+        "HAPROXY_0_VHOST": "ec2-52-42-2-149.us-west-2.compute.amazonaws.com"
       },
       "portDefinitions": [{
         "port": 10010,
