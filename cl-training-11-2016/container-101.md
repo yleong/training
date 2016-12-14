@@ -48,15 +48,16 @@ $ docker rm -f my-nginx
 ## Introspect
 
 ```
-$ docker run -d --name my-ubuntu ubuntu:14.04 tail -f /dev/null
-
-# Shell into running container
-$ docker exec -it my-ubuntu /bin/bash
-$ echo 'Hello world'
-$ exit
+$ docker run -d --name my-ubuntu ubuntu:14.04 sh -c 'while true; do echo hello; sleep 2; done'
 
 # get the STDOUT & STDERR from the container
 $ docker logs my-ubuntu
+
+# Shell into running container
+$ docker exec -it my-ubuntu /bin/bash
+$ ps aux | grep echo
+$ exit
+
 
 # get details about the running container
 $ docker inspect my-ubuntu
@@ -85,7 +86,7 @@ EOF
 $ docker login
 
 # get username
-$ DOCKER_USER=$(docker info | grep Username | cut -d' ' -f2 | tee /dev/stderr)
+$ DOCKER_USER=$(docker info | grep Username | cut -d' ' -f2)
 
 # build docker image
 $ docker build -t ${DOCKER_USER}/nginx-hello-world .
