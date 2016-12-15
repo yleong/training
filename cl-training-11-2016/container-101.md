@@ -38,8 +38,15 @@ $ docker ps
 # get container IP
 $ NGINX_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' my-nginx)
 
-# visit container address
+# visit container's internal address
+# This address is only resolvable from your docker host
 $ curl http://${NGINX_IP}
+
+# get the host port of container
+$ NGINX_HOST_PORT=$(docker port my-nginx | grep 80 | grep -oP '(?<=0.0.0.0:)[0-9]+$')
+
+# visit container using port exposed on docker host
+$ curl http://127.0.0.1:${NGINX_HOST_PORT}
 
 # stop and remove container
 $ docker rm -f my-nginx
