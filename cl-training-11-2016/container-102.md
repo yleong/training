@@ -49,7 +49,7 @@ $ docker inspect --format '{{ .NetworkSettings.IPAddress }}' minitwit
 $ docker logs minitwit
 
 # print and tail the logs
-$ docker logs minitwit -f
+$ docker logs -f minitwit
 ```
 
 ## Stop container
